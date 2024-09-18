@@ -15,9 +15,16 @@ public class Stars : MonoBehaviour
 
     void DrawConstellation()
     {
-        for (int i = 0; i < starTransforms.Count-1; i++)
+
+        for (int i = 0; i < starTransforms.Count - 1; i++)
         {
-            Debug.DrawLine(starTransforms[i].position, starTransforms[i + 1].position, Color.white);
+            float ratio = 0.0f;
+            while (ratio < 1.0f)
+            {
+                Debug.DrawLine(starTransforms[i].position, starTransforms[i + 1].position * ratio, Color.white);
+            }
+        
         }
+
     }
 }
