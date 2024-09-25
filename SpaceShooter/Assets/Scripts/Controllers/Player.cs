@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         acceleration = targetSpeed / timeToReachSpeed;
+        decelerationTime = targetSpeed / timeToReachSpeed;
     }
 
     void Update()
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            velocity -= velocity.normalized * (acceleration * Time.deltaTime);
+            velocity -= velocity.normalized * (decelerationTime * Time.deltaTime);
         }
 
             if (Input.GetKey(KeyCode.T))
