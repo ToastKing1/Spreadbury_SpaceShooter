@@ -11,10 +11,9 @@ public class Player : MonoBehaviour
     public GameObject bombPrefab;
     public Transform bombsTransform;
     public Vector3 velocity = new Vector3(0.001f, 0f);
-    public float speed = 2f;
 
     private float timeToReachSpeed = 3f;
-    private float targetSpeed = 2f;
+    private float targetSpeed = 4f;
     private float acceleration;
     private float decelerationTime;
 
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
         Debug.DrawLine(Vector3.zero, transform.position, Color.blue);
 
 
-        transform.position += velocity * speed * Time.deltaTime;
+        transform.position += velocity * Time.deltaTime;
 
         if (Input.anyKey)
         {
