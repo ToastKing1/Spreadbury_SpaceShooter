@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private float timeToReachSpeed = 3f;
     private float targetSpeed = 2f;
     private float acceleration;
+    private float decelerationTime;
 
 
 
@@ -28,7 +29,6 @@ public class Player : MonoBehaviour
     {
         Debug.DrawLine(Vector3.zero, transform.position, Color.blue);
 
-        print(velocity);
 
         transform.position += velocity * speed * Time.deltaTime;
 
@@ -50,6 +50,10 @@ public class Player : MonoBehaviour
             {
                 PlayerMovement(Vector3.right);
             }
+        }
+        else
+        {
+            velocity -= velocity.normalized * (acceleration * Time.deltaTime);
         }
 
             if (Input.GetKey(KeyCode.T))
