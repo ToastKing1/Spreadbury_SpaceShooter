@@ -18,12 +18,9 @@ public class Stars : MonoBehaviour
 
         for (int i = 0; i < starTransforms.Count - 1; i++)
         {
-            float ratio = 0.0f;
-            while (ratio < 1.00f)
-            {
-                Debug.DrawLine(starTransforms[i].position, starTransforms[i + 1].position * ratio, Color.white);
-                ratio += 1 * Time.deltaTime;
-            }
+
+                Debug.DrawLine(starTransforms[i].position, starTransforms[i + 1].position, Color.white);
+            
         
         }
 
