@@ -13,9 +13,9 @@ public class Asteroid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       target = new Vector3(Random.Range(transform.position.x+0, transform.position.x + maxFloatDistance), 
+       target = new Vector3(Random.Range(transform.position.x - maxFloatDistance, transform.position.x + maxFloatDistance), 
            
-           Random.Range(transform.position.y + 0, transform.position.y + maxFloatDistance), 0);
+           Random.Range(transform.position.y - maxFloatDistance, transform.position.y + maxFloatDistance), 0);
     }
 
     // Update is called once per frame

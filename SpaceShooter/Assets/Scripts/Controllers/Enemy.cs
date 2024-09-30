@@ -22,8 +22,6 @@ public class Enemy : MonoBehaviour
             (playerTransform.position.y - transform.position.y)* (playerTransform.position.y - transform.position.y));
 
 
-        Debug.Log(distance);
-
         if (distance < 3.5f)
         {
             velocity = Vector3.zero;

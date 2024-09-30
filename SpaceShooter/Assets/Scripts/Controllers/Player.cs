@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     private float acceleration;
     private float decelerationTime;
 
+    public int circlePoints = 5;
+    public float circleRadius = 5;
+
 
 
     private void Start()
@@ -60,6 +63,8 @@ public class Player : MonoBehaviour
             {
                 DetectAsteroids(2.5f, asteroidTransforms);
             }
+
+        EnemyRadar(circleRadius, circlePoints);
     }
 
 
@@ -83,6 +88,47 @@ public class Player : MonoBehaviour
                 Debug.DrawLine(transform.position, asteroidsList[eA].position, Color.green);
             }
         }
+    }
+
+    public void EnemyRadar(float radius, int circlePoints)
+    {
+        float angleAmount = 360 / circlePoints;
+
+        angleAmount *= Mathf.Deg2Rad;
+
+        float distance = Mathf.Sqrt((enemyTransform.position.x - transform.position.x) * (enemyTransform.position.x - transform.position.x) +
+            (enemyTransform.position.y - transform.position.y) * (enemyTransform.position.y - transform.position.y)
+            );
+
+
+        if (distance <= radius)
+        {
+            for (int i = 0; i < circlePoints; i++)
+            {
+
+                Debug.DrawLine(transform.position + new Vector3(Mathf.Cos(angleAmount * i), Mathf.Sin(angleAmount * i), 0f) * radius,
+                    transform.position + new Vector3(Mathf.Cos(angleAmount * (i + 1)), Mathf.Sin(angleAmount * (i + 1)), 0f) * radius,
+                    Color.red
+                    );
+            }
+        }
+        else
+        {
+            for (int i = 0; i < circlePoints; i++)
+            {
+                /*
+                Debug.DrawLine(
+                    ( new Vector3(Mathf.Cos((angleAmount * i )), Mathf.Sin(angleAmount * i), 0f) * radius ), 
+                    ( new Vector3(Mathf.Cos(angleAmount * (i+1)), Mathf.Sin(angleAmount * (i + 1)), 0f) * radius), Color.green);
+                */
+
+                Debug.DrawLine(transform.position + new Vector3(Mathf.Cos(angleAmount*i),  Mathf.Sin(angleAmount * i), 0f) * radius,
+                    transform.position + new Vector3(Mathf.Cos(angleAmount * (i+1)), Mathf.Sin(angleAmount * (i+1)), 0f) * radius,
+                    Color.green
+                    );
+            }
+        }
+
     }
 
 }
