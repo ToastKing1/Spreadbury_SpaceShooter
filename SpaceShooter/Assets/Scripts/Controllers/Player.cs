@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
     public float circleRadius = 5;
 
 
+    public GameObject powerUpPrefab;
+    public int powerUpAmount = 3;
+    public float powerUpRadius = 3;
+
+
 
     private void Start()
     {
@@ -65,6 +70,11 @@ public class Player : MonoBehaviour
             }
 
         EnemyRadar(circleRadius, circlePoints);
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            SpawnPowerUps(powerUpRadius, powerUpAmount);
+        }
     }
 
 
@@ -129,6 +139,18 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+
+    public void SpawnPowerUps(float radius, int numberOfPowerups)
+    {
+        float angleAmount = 360 / numberOfPowerups;
+
+        angleAmount *= Mathf.Deg2Rad;
+
+        for (int i = 0; i < numberOfPowerups; i++)
+        {
+            Instantiate(powerUpPrefab, transform.position + new Vector3(Mathf.Cos(angleAmount * i), Mathf.Sin(angleAmount * i), 0f) * radius, Quaternion.identity);
+        }
     }
 
 }
