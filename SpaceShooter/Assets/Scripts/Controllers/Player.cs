@@ -35,8 +35,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawLine(Vector3.zero, transform.position, Color.blue);
-
 
         transform.position += velocity * Time.deltaTime;
 
