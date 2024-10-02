@@ -3483,7 +3483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1702674044}
-  AngularSpeed: 1
+  AngularSpeed: 25
 --- !u!4 &2130580606
 Transform:
   m_ObjectHideFlags: 0

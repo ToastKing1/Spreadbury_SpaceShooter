@@ -33,8 +33,8 @@ public class RotationExercise : MonoBehaviour
         }
         if (transform.eulerAngles.z > TargetAngle)
         {
-            transform.eulerAngles = new Vector3(0, 0, TargetAngle);
-            //transform.Rotate(0, 0, -AngularSpeed * Time.deltaTime);
+            //transform.eulerAngles = new Vector3(0, 0, TargetAngle) * Time.deltaTime;
+            transform.Rotate(0, 0, -AngularSpeed * Time.deltaTime);
         }
     }
 
