@@ -19,6 +19,7 @@ public class DotProductExercise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         //Vector3 redVector = new Vector3(transform.position.x - Mathf.Cos((270 + redAngle) * Mathf.Deg2Rad), transform.position.y - Mathf.Sin((270 + redAngle) * Mathf.Deg2Rad));
 
         Vector3 redVector = new Vector3(Mathf.Cos(redAngle * Mathf.Deg2Rad), Mathf.Sin(redAngle * Mathf.Deg2Rad));
@@ -38,6 +39,6 @@ public class DotProductExercise : MonoBehaviour
             
             Debug.Log(redVector.x * blueVector.x + redVector.x * blueVector.y);
         }
-
+        */
     }
 }
