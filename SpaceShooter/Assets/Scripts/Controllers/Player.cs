@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     public Transform bombsTransform;
     public Vector3 velocity = new Vector3(0.001f, 0f);
 
+    public GameObject energyShieldPrefab;
+    public bool shieldOn = false;
+    public float shieldTimer = 0;
+
     private float timeToReachSpeed = 3f;
     private float targetSpeed = 4f;
     private float acceleration;
@@ -73,6 +77,17 @@ public class Player : MonoBehaviour
         {
             SpawnPowerUps(powerUpRadius, powerUpAmount);
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (shieldOn == false)
+            {
+                EnergyShield();
+            }
+            
+        }
+
+
     }
 
 
@@ -83,6 +98,12 @@ public class Player : MonoBehaviour
         {
             velocity = velocity.normalized * targetSpeed;
         }
+    }
+
+    void EnergyShield()
+    {
+        shieldOn = true;
+        Instantiate(energyShieldPrefab, transform.position, Quaternion.identity);
     }
 
     void DetectAsteroids(float maxRange, List<Transform> asteroidsList)
