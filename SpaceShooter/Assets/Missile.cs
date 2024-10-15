@@ -5,18 +5,16 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     public Transform enemy;
     public float speed = 2f;
-    public float angleSpeed = 5.0f;
+    //public float angleSpeed = 5.0f;
 
     void Start()
     {
         enemy = GameObject.Find("Enemy").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (enemy == null) return;
@@ -45,26 +43,26 @@ public class Missile : MonoBehaviour
     void Rotation()
     {
         float angle = Mathf.Atan2(enemy.position.y - transform.position.y, enemy.position.x - transform.position.x) * Mathf.Rad2Deg;
-        
-        
-        /*
-        if (transform.eulerAngles.z < angle)
-        {
-
-            transform.Rotate(0, 0, angleSpeed * Time.deltaTime);
-           // transform.eulerAngles = new Vector3(0, 0, angle) * Time.deltaTime;
-        }
-        if (transform.eulerAngles.z > angle)
-        {
-            transform.Rotate(0, 0, -angleSpeed * Time.deltaTime);
-            //transform.eulerAngles = new Vector3(0, 0, -angle) * Time.deltaTime;
-        }
-        */
-
-        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle) * 10);
 
         transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
 
+
+
+    /*
+    if (transform.eulerAngles.z < angle)
+    {
+
+        transform.Rotate(0, 0, angleSpeed * Time.deltaTime);
+       // transform.eulerAngles = new Vector3(0, 0, angle) * Time.deltaTime;
+    }
+    if (transform.eulerAngles.z > angle)
+    {
+        transform.Rotate(0, 0, -angleSpeed * Time.deltaTime);
+        //transform.eulerAngles = new Vector3(0, 0, -angle) * Time.deltaTime;
+    }
+    */
+
+    //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle) * 10);
 
 }
