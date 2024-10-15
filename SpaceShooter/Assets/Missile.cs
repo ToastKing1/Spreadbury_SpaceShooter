@@ -9,6 +9,7 @@ public class Missile : MonoBehaviour
 
     public Transform enemy;
     public float speed = 2f;
+    public float angleSpeed = 5.0f;
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class Missile : MonoBehaviour
         }
         else
         {
-            transform.position += (enemy.position - transform.position) * 0.05f * speed * Time.deltaTime;
+            transform.position += (enemy.position - transform.position) * speed * Time.deltaTime;
         }
         
         
@@ -45,34 +46,25 @@ public class Missile : MonoBehaviour
     {
         float angle = Mathf.Atan2(enemy.position.y - transform.position.y, enemy.position.x - transform.position.x) * Mathf.Rad2Deg;
         
-
-        angle = StandardizeAngle(angle);
-
+        
+        /*
         if (transform.eulerAngles.z < angle)
         {
-            transform.eulerAngles += new Vector3(0, 0, angle) * 5 * Time.deltaTime;
+
+            transform.Rotate(0, 0, angleSpeed * Time.deltaTime);
+           // transform.eulerAngles = new Vector3(0, 0, angle) * Time.deltaTime;
         }
-        if (transform.eulerAngles.z < angle)
+        if (transform.eulerAngles.z > angle)
         {
-            transform.eulerAngles += new Vector3(0, 0, -angle) * 5 * Time.deltaTime;
+            transform.Rotate(0, 0, -angleSpeed * Time.deltaTime);
+            //transform.eulerAngles = new Vector3(0, 0, -angle) * Time.deltaTime;
         }
+        */
 
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle) * 10);
 
-
+        transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
 
-    public float StandardizeAngle(float inAngle)
-    {
-        inAngle = inAngle % 360;
 
-        inAngle = (inAngle + 360) % 360;
-
-        if (inAngle > 180)
-        {
-            inAngle -= 360;
-        }
-
-        return inAngle;
-    }
 }

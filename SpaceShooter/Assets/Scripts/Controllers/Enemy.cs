@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
             }
 
 
-            //transform.position += velocity * Time.deltaTime;
+            transform.position += velocity * Time.deltaTime;
         }
     }
 
