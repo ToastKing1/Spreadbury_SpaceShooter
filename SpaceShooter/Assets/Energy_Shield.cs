@@ -43,9 +43,7 @@ public class Energy_Shield : MonoBehaviour
 
     public void Rotation()
     {
-
         transform.RotateAround(player.position, transform.position, 100*Time.deltaTime);
     }
-
 
 }
