@@ -30,6 +30,7 @@ public class Energy_Shield : MonoBehaviour
     {
         if (time > 14.15)
         {
+            GameObject.Find("Player").gameObject.GetComponent<Player>().shieldOn = false;
             Destroy(gameObject);
         }
         else
@@ -43,5 +44,8 @@ public class Energy_Shield : MonoBehaviour
     public void Rotation()
     {
 
+        transform.RotateAround(player.position, transform.position, 100*Time.deltaTime);
     }
+
+
 }

@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
 
     public GameObject energyShieldPrefab;
     public bool shieldOn = false;
-    public float shieldTimer = 0;
 
     private float timeToReachSpeed = 3f;
     private float targetSpeed = 4f;
