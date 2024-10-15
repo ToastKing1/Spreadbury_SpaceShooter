@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public GameObject energyShieldPrefab;
     public bool shieldOn = false;
 
+    public GameObject missilePrefab;
+
     private float timeToReachSpeed = 3f;
     private float targetSpeed = 4f;
     private float acceleration;
@@ -70,7 +72,10 @@ public class Player : MonoBehaviour
                 DetectAsteroids(2.5f, asteroidTransforms);
             }
 
-        EnemyRadar(circleRadius, circlePoints);
+        if (enemyTransform != null)
+        {
+            EnemyRadar(circleRadius, circlePoints);
+        }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -84,6 +89,11 @@ public class Player : MonoBehaviour
                 EnergyShield();
             }
             
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Missile();
         }
 
 
@@ -103,6 +113,11 @@ public class Player : MonoBehaviour
     {
         shieldOn = true;
         Instantiate(energyShieldPrefab, transform.position, Quaternion.identity);
+    }
+
+    void Missile()
+    {
+        Instantiate(missilePrefab, transform.position + Vector3.up, Quaternion.identity);
     }
 
     void DetectAsteroids(float maxRange, List<Transform> asteroidsList)
