@@ -8,14 +8,6 @@ public class TestingScript3 : MonoBehaviour
     public GameObject player;
     public Vector2 playerVector2;
     public Transform self;
-    void Start()
-    {
-        
-
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         playerVector2 = player.transform.position;
